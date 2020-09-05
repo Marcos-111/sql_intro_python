@@ -170,8 +170,9 @@ if __name__ == '__main__':
     insert()
     fetch()
     
-    grade = 3
+    grade = 2
     search_by_grade(grade)
+    #Si pongo grade = 3 funciona. Si cambio el grade no funciona
 
     name = 'Ananda'
     id = 1
