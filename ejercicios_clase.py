@@ -96,12 +96,7 @@ def fetch():
 
     conn.close()
 
-    grade = 3
-    search_by_grade(grade)
-
-    name = 'Ananda'
-    id = 1
-    modify(id, name)
+    
 
 
 def insert():
@@ -175,7 +170,12 @@ if __name__ == '__main__':
     insert()
     fetch()
     
+    grade = 3
+    search_by_grade(grade)
 
+    name = 'Ananda'
+    id = 1
+    modify(id, name)
   
 
     
