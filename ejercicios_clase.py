@@ -137,10 +137,18 @@ def search_by_grade(grade):
     c.execute('SELECT * FROM estudiante')
    
     for row in c.execute('SELECT * FROM estudiante'):
-        if row[grade] == grade:
+        # Inove: Ojo ahí!, lo correcto sería:
+        # id(0) | name(1) | age(2) | grade(3) | tutor(4)
+        # if row[3] == grade
+        if row[grade] == grade:  
             print(row[0], row[1], row[2])
-        else:
-            pass
+        else:      # Inove: Podemos omitir esta linea de codigo
+            pass   # Inove: Podemos omitir esta linea de codigo
+        
+    # Inove: Otra forma de resolverlo sin tener que leer toda la tabla
+    # y dejar que lo haga SQL por nosotros:
+    #for row in c.execute('SELECT * FROM estudiante WHERE grade=?', [grade]):
+        #print(row[0], row[1], row[2])
                     
 
 
