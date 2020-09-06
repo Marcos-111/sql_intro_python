@@ -43,6 +43,8 @@ def fill():
     
     conn = sqlite3.connect('libreria.db')
     c = conn.cursor()
+    c.execute('SELECT * FROM libro')
+
     
 
     with open('libreria.csv') as csvfile:
@@ -74,12 +76,12 @@ def fetch(id):
     c.execute('SELECT * FROM libro')
    
     for row in c.execute('SELECT * FROM libro'):
+
         if id == 0:
             print(row)
+        
         elif row[0] == id:
             print(row)
-        else:
-            pass
 
 
 def search_author(book_title):
@@ -88,13 +90,12 @@ def search_author(book_title):
     c = conn.cursor()
     c.execute('SELECT * FROM libro')
    
-    for row in c.execute('SELECT * FROM libro'):
-        if row[1] == book_title:
-            print(row[3])
-        else:
-            pass
+    for row in c.execute('SELECT l.author FROM libro AS l WHERE l.title = ?', [book_title]):
+        
+        return(row)
+        
     
-#En estas dos ultimas funciones no supe como usar el where, me dirian como seria? gracias!
+
         
 
 if __name__ == "__main__":
